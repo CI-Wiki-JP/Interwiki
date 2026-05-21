@@ -96,16 +96,6 @@ function addTranslationLink(pageUrl, branchName, branchLang, isOriginal) {
   // Record its branch's language code in the element
   newMenuItem.setAttribute("name", branchLang);
 
-  // Create the bullet point image
-  var bullet = document.createElement("img");
-  bullet.setAttribute(
-    "src",
-    "//sigma9.scpwikicn.com/cn/img/default.png"
-  );
-  bullet.setAttribute("alt", "default.png");
-  bullet.classList.add("image");
-  newMenuItem.appendChild(bullet);
-
   // Create the actual link
   var link = document.createElement("a");
   link.setAttribute("href", pageUrl);
