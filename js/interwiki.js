@@ -4,6 +4,7 @@ import { addExternalStyle, createRequestStyleChange } from "./styles";
 
 import { scpBranches } from "./branches-info-scp";
 import { wlBranches } from "./branches-info-wl";
+import { ciBranches } from "./branches-info-ci";
 
 import { ResizeObserver } from "@juggle/resize-observer";
 
@@ -81,7 +82,7 @@ function pullStyles() {
  * Main procedure for the interwiki. Prepare contextual data, apply CSS
  * styling, and add links to translations.
  *
- * @param {"scp" | "wl"} community - The community of the interwiki.
+ * @param {"scp" | "wl" | "ci"} community - The community of the interwiki.
  * @param {String} pagename - The Wikidot fullname of the current page.
  * @param {String} currentBranchLang - The language code of the current branch
  * of the given community.
@@ -104,7 +105,7 @@ export function createInterwiki(
   pagename = pagename.replace(/^-+|-+$/g, "");
 
   // Get the list of branches for the given community
-  var branches = { wl: wlBranches, scp: scpBranches }[community] || {};
+  var branches = { ci: ciBranches ,wl: wlBranches, scp: scpBranches }[community] || {};
 
   // Get the config for the current branch, if configured
   var currentBranch = branches[currentBranchLang] || {};
